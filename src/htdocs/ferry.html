@@ -1,0 +1,37 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ferry</title>
+	<style>
+		.top, .bottom{
+			width: 300px;
+			height: 80px;
+			margin-bottom: 100px;
+			background-color: steelblue;
+			-webkit-app-region: drag;
+		}
+		body: {
+			rgba(0,0,0,0);
+		}
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div class="bottom"></div>
+	<script>
+	document.addEventListener('click',function(e){
+		if (e.target === document.body){
+			console.log(JSON.stringify({
+				x: e.screenX,
+				y: e.screenY
+			}));
+
+			fin.desktop.sendSync(JSON.stringify({
+				x: e.screenX,
+				y: e.screenY
+			}))
+		}
+	});
+	</script>
+</body>
+</html>
